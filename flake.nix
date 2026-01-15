@@ -36,6 +36,7 @@
             src = ./.;
             hooks = {
               nixfmt.enable = true;
+              clang-format.enable = true;
             };
           };
         };
@@ -46,6 +47,8 @@
             inherit (self.checks.${system}.pre-commit-check) shellHook;
             nativeBuildInputs = [
               uv
+              gcc
+              clang-tools
             ];
           };
       });
